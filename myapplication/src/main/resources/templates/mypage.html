@@ -2,10 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My web page</title>
+    <title th:text="${title}"></title>
 </head>
 <body>
     <h1>My first web application</h1>
     <p th:text="'Hi, '+${myname}+'.. Have a nice day'"></p>
+    <div>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/about-us}">About Us</a></li>
+            <li><a th:href="@{/contact-us}">Contact Us</a></li>
+            <li><a th:href="@{/services}">Services</a></li>
+        </ul>
+    </div>
 </body>
 </html>

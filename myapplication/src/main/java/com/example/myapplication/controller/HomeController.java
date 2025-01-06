@@ -15,6 +15,25 @@ public class HomeController {
     //handler method
     public String showHomePage(Model model) {
         model.addAttribute("myname", "Bushan");
+        model.addAttribute("title", "Home");
         return "mypage";
+    }
+
+    @GetMapping("/about-us")
+    public String showAboutUsPage(Model model) {
+        model.addAttribute("title", "About Us");
+        return "aboutus";
+    }
+
+    @GetMapping("/contact-us")
+    public String showContactUsPage(Model model) {
+        model.addAttribute("title", "Contact Us");
+        return "contactus";
+    }
+
+    @GetMapping("/services")
+    public String showServicesPage(Model model) {
+        model.addAttribute("title", "Services");
+        return "services";
     }
 }
