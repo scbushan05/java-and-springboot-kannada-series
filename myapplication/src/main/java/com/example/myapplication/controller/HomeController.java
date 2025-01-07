@@ -2,10 +2,7 @@ package com.example.myapplication.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 //controller class
 @Controller
@@ -46,5 +43,13 @@ public class HomeController {
         model.addAttribute("title", "Products");
         model.addAttribute("appname", name);
         return "products";
+    }
+
+    @GetMapping("/products/{productname}/details")
+    public String showProductDetailsPage(Model model, @PathVariable String productname) {
+        System.out.println("Product Name:::"+productname);
+        model.addAttribute("title", "Product Details");
+        model.addAttribute("productId", productname);
+        return "product-details";
     }
 }
