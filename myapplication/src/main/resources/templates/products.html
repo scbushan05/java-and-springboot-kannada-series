@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1>Products</h1>
+    <p th:text="'The product name is: '+${appname}"></p>
+    <ul>
+        <li>
+            Product 1
+        </li>
+        <li>
+            Product 2
+        </li>
+        <li>
+            Product 3
+        </li>
+    </ul>
+    <div>
+        <a th:href="@{/home}">Back</a>
+    </div>
+</body>
+</html>
