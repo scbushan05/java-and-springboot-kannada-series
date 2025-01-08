@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //controller class
 @Controller
 public class HomeController {
@@ -32,6 +35,14 @@ public class HomeController {
     @GetMapping("/services")
     public String showServicesPage(Model model) {
         model.addAttribute("title", "Services");
+        //create an array
+        //String[] services = {"Android app development", "iOS app development", "Web development", "Web design", "UI/UX development", "test"};
+//        List<String> services = new ArrayList<>();
+//        services.add("Android app development");
+//        services.add("iOS app development");
+//        services.add("Web development");
+        List<String> services = List.of("Android app development", "iOS app development", "Web development", "Web design", "UI/UX development");
+        model.addAttribute("services", services);
         return "services";
     }
 

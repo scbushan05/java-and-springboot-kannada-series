@@ -6,5 +6,13 @@
 </head>
 <body>
     <h1>Services</h1>
+    <div>
+        <a th:href="@{/home}">Back</a>
+        <div>
+            <ul th:each="service: ${services}">
+                <li th:text="${service}"></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
