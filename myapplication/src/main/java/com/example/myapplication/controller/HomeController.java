@@ -1,5 +1,9 @@
 package com.example.myapplication.controller;
 
+import com.example.myapplication.model.Product;
+import com.example.myapplication.service.ProductService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +13,10 @@ import java.util.List;
 
 //controller class
 @Controller
+@AllArgsConstructor
 public class HomeController {
+
+    private final ProductService productService;
 
     //@RequestMapping(value = {"", "/home", "/"}, method = RequestMethod.GET)
     @GetMapping({"/home", "", "/"})
@@ -53,6 +60,8 @@ public class HomeController {
         System.out.println("Receiving the parameter from URL::::"+price);
         model.addAttribute("title", "Products");
         model.addAttribute("appname", name);
+        List<Product> products = productService.getProducts();
+        model.addAttribute("products", products);
         return "products";
     }
 

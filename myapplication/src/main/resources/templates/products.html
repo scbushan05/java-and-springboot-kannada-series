@@ -19,6 +19,21 @@
         </li>
     </ul>
     <div>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Specs</th>
+            </tr>
+            <tr th:each="product: ${products}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${#strings.listJoin(product.specs,', ')}"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div>
         <a th:href="@{/home}">Back</a>
     </div>
 </body>
