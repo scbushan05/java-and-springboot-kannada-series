@@ -2,11 +2,13 @@ package com.example.myapplication.controller;
 
 import com.example.myapplication.model.Product;
 import com.example.myapplication.service.ProductService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,5 +73,13 @@ public class HomeController {
         model.addAttribute("title", "Product Details");
         model.addAttribute("productId", productname);
         return "product-details";
+    }
+
+    @PostMapping("/contactprocess")
+    public String processContactForm(Model model, HttpServletRequest request) {
+        String fullName = request.getParameter("fullname");
+        System.out.println("Printing full name:::"+fullName);
+        model.addAttribute("fullName", fullName);
+        return "contactus";
     }
 }

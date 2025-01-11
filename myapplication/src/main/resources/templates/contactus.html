@@ -7,6 +7,16 @@
 <body>
     <h1>Contact Us</h1>
     <div>
+        <form th:action="@{/contactprocess}" method="post">
+            <label for="fullname">Full Name</label>
+            <input type="text" name="fullname" id="fullname" required="true" />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <div th:if="${fullName}">
+        Full Name: <span th:text="${fullName}"></span>
+    </div>
+    <div>
         <a th:href="@{/home}">Back</a>
     </div>
 </body>
