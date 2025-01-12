@@ -8,13 +8,26 @@
     <h1>Contact Us</h1>
     <div>
         <form th:action="@{/contactprocess}" method="post">
-            <label for="fullname">Full Name</label>
-            <input type="text" name="fullname" id="fullname" required="true" />
+            <div>
+                <label for="fullname">Full Name</label>
+                <input type="text" name="fullname" id="fullname" required="true" />
+            </div>
+            <div>
+                <label for="country">Select Country</label>
+                <select name="country" id="country" required="true">
+                    <option value="">--Select Country--</option>
+                    <option th:each="country: ${countries}"
+                            th:value="${country.key}"
+                            th:text="${country.value}"></option>
+                </select>
+            </div>
             <input type="submit" value="Submit" />
         </form>
     </div>
     <div th:if="${fullName}">
         Full Name: <span th:text="${fullName}"></span>
+        <br/>
+        Country: <span th:text="${country}"></span>
     </div>
     <div>
         <a th:href="@{/home}">Back</a>

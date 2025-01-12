@@ -38,6 +38,7 @@ public class HomeController {
     @GetMapping("/contact-us")
     public String showContactUsPage(Model model) {
         model.addAttribute("title", "Contact Us");
+        model.addAttribute("countries", productService.getCountries());
         return "contactus";
     }
 
@@ -78,8 +79,11 @@ public class HomeController {
     @PostMapping("/contactprocess")
     public String processContactForm(Model model, HttpServletRequest request) {
         String fullName = request.getParameter("fullname");
+        String country = request.getParameter("country");
         System.out.println("Printing full name:::"+fullName);
+        System.out.println("Printing country:::"+country);
         model.addAttribute("fullName", fullName);
+        model.addAttribute("country", country);
         return "contactus";
     }
 }
