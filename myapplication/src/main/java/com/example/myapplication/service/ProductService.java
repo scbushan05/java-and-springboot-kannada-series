@@ -12,6 +12,8 @@ import java.util.Map;
 public class ProductService {
     private static List<Product> productList;
     private static Map<String, String> countryMap;
+
+    private static Map<String, String> interestsMap;
     static {
         productList = new ArrayList<>();
         productList.add(new Product("iPhone 16", 100000.00, List.of("16MP Camera", "6GB RAM", "128GB Storage")));
@@ -23,6 +25,11 @@ public class ProductService {
         countryMap.put("india", "India");
         countryMap.put("south africa", "South Africa");
         countryMap.put("test", "Test");
+
+        interestsMap = new HashMap<>();
+        interestsMap.put("writing", "Writing");
+        interestsMap.put("reading", "Reading");
+        interestsMap.put("cooking", "Cooking");
     }
 
     public ProductService() {
@@ -35,5 +42,9 @@ public class ProductService {
 
     public Map<String, String> getCountries() {
         return countryMap;
+    }
+
+    public Map<String, String> getInterests() {
+        return interestsMap;
     }
 }

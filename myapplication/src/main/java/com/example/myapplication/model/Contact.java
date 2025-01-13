@@ -12,4 +12,6 @@ public class Contact {
     private String fullName;
 
     private String country;
+
+    private String interests;
 }

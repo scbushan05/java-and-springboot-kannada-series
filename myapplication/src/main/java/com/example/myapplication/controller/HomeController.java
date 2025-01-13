@@ -41,6 +41,7 @@ public class HomeController {
         model.addAttribute("title", "Contact Us");
         model.addAttribute("countries", productService.getCountries());
         model.addAttribute("contact", new Contact());
+        model.addAttribute("interests", productService.getInterests());
         return "contactus";
     }
 

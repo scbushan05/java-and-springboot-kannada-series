@@ -21,6 +21,13 @@
                             th:text="${country.value}"></option>
                 </select>
             </div>
+            <div>
+                <p>Select your interests:</p>
+                <div th:each="interest: ${interests}">
+                    <input type="checkbox" th:id="${interest.key}" th:value="${interest.key}" th:field="*{interests}"/>
+                    <label th:for="${interest.key}" th:text="${interest.value}"></label>
+                </div>
+            </div>
             <input type="submit" value="Submit" />
         </form>
     </div>
@@ -28,6 +35,8 @@
         Full Name: <span th:text="${data.fullName}"></span>
         <br/>
         Country: <span th:text="${data.country}"></span>
+        <br/>
+        Interests: <span th:text="${data.interests}"></span>
     </div>
     <div>
         <a th:href="@{/home}">Back</a>
