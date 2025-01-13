@@ -1,5 +1,6 @@
 package com.example.myapplication.controller;
 
+import com.example.myapplication.model.Contact;
 import com.example.myapplication.model.Product;
 import com.example.myapplication.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +40,7 @@ public class HomeController {
     public String showContactUsPage(Model model) {
         model.addAttribute("title", "Contact Us");
         model.addAttribute("countries", productService.getCountries());
+        model.addAttribute("contact", new Contact());
         return "contactus";
     }
 
@@ -77,13 +79,15 @@ public class HomeController {
     }
 
     @PostMapping("/contactprocess")
-    public String processContactForm(Model model, HttpServletRequest request) {
-        String fullName = request.getParameter("fullname");
-        String country = request.getParameter("country");
-        System.out.println("Printing full name:::"+fullName);
-        System.out.println("Printing country:::"+country);
-        model.addAttribute("fullName", fullName);
-        model.addAttribute("country", country);
-        return "contactus";
+    public String processContactForm(Model model, HttpServletRequest request, @ModelAttribute Contact contact, RedirectAttributes attributes) {
+//        String fullName = request.getParameter("fullname");
+//        String country = request.getParameter("country");
+//        System.out.println("Printing full name:::"+fullName);
+//        System.out.println("Printing country:::"+country);
+//        model.addAttribute("fullName", fullName);
+//        model.addAttribute("country", country);
+        attributes.addFlashAttribute("data", contact);
+        System.out.println("Printing contact object::"+contact);
+        return "redirect:/contact-us";
     }
 }

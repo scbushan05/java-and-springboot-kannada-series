@@ -7,14 +7,14 @@
 <body>
     <h1>Contact Us</h1>
     <div>
-        <form th:action="@{/contactprocess}" method="post">
+        <form th:action="@{/contactprocess}" method="post" th:object="${contact}">
             <div>
                 <label for="fullname">Full Name</label>
-                <input type="text" name="fullname" id="fullname" required="true" />
+                <input type="text" name="fullname" id="fullname" required="true" th:field="*{fullName}"/>
             </div>
             <div>
                 <label for="country">Select Country</label>
-                <select name="country" id="country" required="true">
+                <select name="country" id="country" required="true" th:field="*{country}">
                     <option value="">--Select Country--</option>
                     <option th:each="country: ${countries}"
                             th:value="${country.key}"
@@ -24,10 +24,10 @@
             <input type="submit" value="Submit" />
         </form>
     </div>
-    <div th:if="${fullName}">
-        Full Name: <span th:text="${fullName}"></span>
+    <div th:if="${data != null}">
+        Full Name: <span th:text="${data.fullName}"></span>
         <br/>
-        Country: <span th:text="${country}"></span>
+        Country: <span th:text="${data.country}"></span>
     </div>
     <div>
         <a th:href="@{/home}">Back</a>
