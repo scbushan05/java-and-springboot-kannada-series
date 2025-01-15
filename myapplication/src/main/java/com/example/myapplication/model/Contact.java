@@ -14,4 +14,6 @@ public class Contact {
     private String country;
 
     private String interests;
+
+    private char gender;
 }

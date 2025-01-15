@@ -28,6 +28,14 @@
                     <label th:for="${interest.key}" th:text="${interest.value}"></label>
                 </div>
             </div>
+            <div>
+                <p>Select your gender:</p>
+                <div th:each="gender: ${genderOptions}">
+                    <input type="radio" th:id="${gender.key}" th:value="${gender.key}" th:field="*{gender}" />
+                    <label th:for="${gender.key}" th:text="${gender.value}"></label>
+                </div>
+
+            </div>
             <input type="submit" value="Submit" />
         </form>
     </div>
@@ -37,6 +45,8 @@
         Country: <span th:text="${data.country}"></span>
         <br/>
         Interests: <span th:text="${data.interests}"></span>
+        <br />
+        Gender: <span th:text="${data.gender}"></span>
     </div>
     <div>
         <a th:href="@{/home}">Back</a>

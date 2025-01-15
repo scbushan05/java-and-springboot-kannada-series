@@ -12,6 +12,7 @@ import java.util.Map;
 public class ProductService {
     private static List<Product> productList;
     private static Map<String, String> countryMap;
+    private static Map<Character, String> genderOptions;
 
     private static Map<String, String> interestsMap;
     static {
@@ -30,6 +31,10 @@ public class ProductService {
         interestsMap.put("writing", "Writing");
         interestsMap.put("reading", "Reading");
         interestsMap.put("cooking", "Cooking");
+
+        genderOptions = new HashMap<>();
+        genderOptions.put('m', "Male");
+        genderOptions.put('f', "Female");
     }
 
     public ProductService() {
@@ -46,5 +51,9 @@ public class ProductService {
 
     public Map<String, String> getInterests() {
         return interestsMap;
+    }
+
+    public Map<Character, String> getGenderOptions() {
+        return genderOptions;
     }
 }
