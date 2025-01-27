@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -17,53 +17,53 @@
                             <h3 class="login-heading mb-4">Welcome back!</h3>
 
                             <!-- Sign In Form -->
-                            <form>
+                            <form th:action="@{/register}" th:object="${user}" method="post">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="fullName" placeholder="Jhon Doe">
+                                    <input type="text" class="form-control" id="fullName" placeholder="Jhon Doe" th:field="*{fullName}">
                                     <label for="fullName">Full Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" th:field="*{email}">
                                     <label for="floatingInput">Email address</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" th:field="*{password}">
                                     <label for="floatingPassword">Password</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingPhoneNumber" placeholder="9876543210">
+                                    <input type="number" class="form-control" id="floatingPhoneNumber" placeholder="9876543210" th:field="*{phone}">
                                     <label for="floatingPhoneNumber">Phone Number</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="male" name="gender" value="m">
+                                    <input class="form-check-input" type="radio" id="male" name="gender" value="m" th:field="*{gender}">
                                     <label class="form-check-label" for="male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="female" name="gender" value="f">
+                                    <input class="form-check-input" type="radio" id="female" name="gender" value="f" th:field="*{gender}">
                                     <label class="form-check-label" for="female">Female</label>
                                 </div>
                                 <br><br>
                                 <div class="form-check form-check-inline mb-3">
-                                    <input type="checkbox" class="form-check-input" id="reading" value="reading">
+                                    <input type="checkbox" class="form-check-input" id="reading" value="reading" th:field="*{hobbies}">
                                     <label for="reading" class="form-check-label">Reading</label>
                                 </div>
                                 <div class="form-check form-check-inline mb-3">
-                                    <input type="checkbox" class="form-check-input" id="writing" value="writing">
+                                    <input type="checkbox" class="form-check-input" id="writing" value="writing" th:field="*{hobbies}">
                                     <label for="writing" class="form-check-label">Writing</label>
                                 </div>
                                 <div class="form-check form-check-inline mb-3">
-                                    <input type="checkbox" class="form-check-input" id="cooking" value="cooking">
+                                    <input type="checkbox" class="form-check-input" id="cooking" value="cooking" th:field="*{hobbies}">
                                     <label for="cooking" class="form-check-label">Cooking</label>
                                 </div>
                                 <div class="mb-3 form-floating">
-                                    <select class="form-select" id="country">
+                                    <select class="form-select" id="country" th:field="*{country}">
                                         <option value="india">India</option>
                                         <option value="usa">USA</option>
                                     </select>
                                     <label for="country">Country</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="dob" placeholder="dd/mm/yyyy">
+                                    <input type="date" class="form-control" id="dob" placeholder="dd/mm/yyyy" th:field="*{dob}">
                                     <label for="dob">Date of Birth</label>
                                 </div>
 
