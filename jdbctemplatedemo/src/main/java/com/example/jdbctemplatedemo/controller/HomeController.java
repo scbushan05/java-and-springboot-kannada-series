@@ -2,9 +2,11 @@ package com.example.jdbctemplatedemo.controller;
 
 import com.example.jdbctemplatedemo.model.User;
 import com.example.jdbctemplatedemo.service.RegisterService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +24,11 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute User user) {
+    public String register(@Valid @ModelAttribute User user, BindingResult result) {
         System.out.println("Printing the user details:"+user);
+        if (result.hasErrors()) {
+            return "register";
+        }
         registerService.register(user);
         return "success";
     }

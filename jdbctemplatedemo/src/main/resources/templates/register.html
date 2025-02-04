@@ -21,10 +21,12 @@
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="fullName" placeholder="Jhon Doe" th:field="*{fullName}">
                                     <label for="fullName">Full Name</label>
+                                    <span th:errors="*{fullName}" class="text-danger"></span>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" th:field="*{email}">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" th:field="*{email}">
                                     <label for="floatingInput">Email address</label>
+                                    <span th:errors="*{email}" class="text-danger"></span>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" th:field="*{password}">
@@ -33,6 +35,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingPhoneNumber" placeholder="9876543210" th:field="*{phone}">
                                     <label for="floatingPhoneNumber">Phone Number</label>
+                                    <span th:errors="*{phone}" class="text-danger"></span>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" id="male" name="gender" value="m" th:field="*{gender}">
@@ -68,7 +71,7 @@
                                 </div>
 
                                 <div class="d-grid">
-                                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Register</button>
 
                                 </div>
 
