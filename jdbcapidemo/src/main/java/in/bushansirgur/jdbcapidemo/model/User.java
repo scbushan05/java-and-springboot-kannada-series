@@ -1,5 +1,9 @@
 package in.bushansirgur.jdbcapidemo.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tbl_users")
 public class User {
 
     public Integer getId() {
@@ -9,9 +13,18 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
+    //@Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    //@Column(name = "name")
+    @Column(nullable = false)
     private String name;
+    //@Column(name = "email")
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false)
+    private String mobile;
 
     public String getName() {
         return name;
